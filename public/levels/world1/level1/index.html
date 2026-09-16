@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RehabPlay AI - Level 6</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- MediaPipe Hands -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+
+    <!-- MediaPipe Camera Utils -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <!-- START SCREEN -->
+        <section id="startScreen">
+
+            <div class="start-card">
+
+                <div class="brand">
+                    REHABPLAY AI
+                </div>
+
+                <div class="level-label">
+                    LEVEL 1
+                </div>
+
+                <h1>Garden Path</h1>
+
+                <p>
+                    Move your hand around the path and touch each target.
+                </p>
+
+                <button id="startButton" class="primary-button">
+                    START GAME
+                </button>
+
+                <div class="small-note">
+                    Move slowly and comfortably.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- GAME SCREEN -->
+        <section id="gameScreen" class="hidden">
+
+            <canvas id="gameCanvas"
+                    width="1100"
+                    height="650">
+            </canvas>
+
+
+            <!-- TOP BAR -->
+            <div class="top-bar">
+
+                <div class="title-box">
+
+                    <strong>
+                        REHABPLAY AI
+                    </strong>
+
+                    <span>
+                        LEVEL 1 · GARDEN PATH
+                    </span>
+
+                </div>
+
+
+                <div class="score-box">
+
+                    <span>
+                        SCORE
+                    </span>
+
+                    <strong id="score">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <!-- INSTRUCTION -->
+            <div id="instruction">
+                Move your hand around the targets
+            </div>
+
+
+            <!-- HAND SELECTION -->
+            <div class="hand-selector">
+
+                <button id="leftHandButton"
+                        class="hand-button selected">
+                    LEFT HAND
+                </button>
+
+                <button id="rightHandButton"
+                        class="hand-button">
+                    RIGHT HAND
+                </button>
+
+            </div>
+
+
+            <!-- CAMERA -->
+            <div class="camera-container">
+
+                <video id="inputVideo"
+                       autoplay
+                       muted
+                       playsinline>
+                </video>
+
+                <canvas id="cameraCanvas"
+                        width="320"
+                        height="240">
+                </canvas>
+
+                <div id="handStatus">
+                    SHOW YOUR HAND
+                </div>
+
+            </div>
+
+
+            <!-- CAMERA ERROR -->
+            <div id="cameraError"
+                 class="camera-error hidden">
+
+                Camera unavailable - please allow camera access.
+
+            </div>
+
+
+            <!-- LEVEL COMPLETE -->
+            <div id="completeOverlay"
+                 class="complete-overlay hidden">
+
+                <div class="complete-card">
+
+                    <div class="success-circle">
+                        ✓
+                    </div>
+
+                    <h2>
+                        LEVEL COMPLETE!
+                    </h2>
+
+                    <p>
+                        Great work. You completed the garden path.
+                    </p>
+
+                    <div class="final-score">
+
+                        <span>
+                            SCORE
+                        </span>
+
+                        <strong id="finalScore">
+                            0
+                        </strong>
+
+                    </div>
+
+                    <button id="nextButton"
+                            class="primary-button">
+                        NEXT LEVEL →
+                    </button>
+
+                    <button id="homeButton"
+                            class="secondary-button">
+                        BACK TO LEVELS
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>

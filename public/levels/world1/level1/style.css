@@ -1,0 +1,617 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #172d23;
+    color: white;
+}
+
+button {
+    font-family: inherit;
+    cursor: pointer;
+    border: none;
+}
+
+
+/* =========================================
+   APP
+========================================= */
+
+#app {
+    width: 100vw;
+    height: 100vh;
+}
+
+
+/* =========================================
+   START SCREEN
+========================================= */
+
+#startScreen {
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            rgba(18, 43, 31, 0.78),
+            rgba(18, 43, 31, 0.90)
+        ),
+        linear-gradient(
+            135deg,
+            #5b8c5a,
+            #2e5c43,
+            #173328
+        );
+}
+
+
+.start-card {
+    width: min(620px, 90vw);
+
+    padding: 50px 45px;
+
+    text-align: center;
+
+    background: rgba(24, 47, 38, 0.95);
+
+    border-radius: 28px;
+
+    border: 1px solid rgba(255,255,255,0.12);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.35);
+}
+
+
+.brand {
+    font-size: 17px;
+    font-weight: 800;
+
+    letter-spacing: 4px;
+
+    opacity: 0.7;
+
+    margin-bottom: 20px;
+}
+
+
+.level-label {
+    font-size: 15px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+    color: #f4c95d;
+
+    margin-bottom: 8px;
+}
+
+
+.start-card h1 {
+    font-size: clamp(45px, 6vw, 70px);
+
+    margin-bottom: 16px;
+}
+
+
+.start-card p {
+    font-size: 20px;
+
+    line-height: 1.5;
+
+    opacity: 0.88;
+
+    max-width: 500px;
+
+    margin: auto;
+}
+
+
+.primary-button {
+    margin-top: 32px;
+
+    min-width: 240px;
+
+    padding: 17px 30px;
+
+    border-radius: 14px;
+
+    background: #f4c95d;
+
+    color: #17251f;
+
+    font-size: 18px;
+
+    font-weight: 800;
+}
+
+
+.primary-button:hover {
+    transform: translateY(-2px);
+}
+
+
+.secondary-button {
+    margin-top: 12px;
+
+    padding: 14px 25px;
+
+    border-radius: 12px;
+
+    background: #31483e;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: 700;
+}
+
+
+.small-note {
+    margin-top: 20px;
+
+    font-size: 14px;
+
+    opacity: 0.5;
+}
+
+
+/* =========================================
+   GAME
+========================================= */
+
+#gameScreen {
+    position: relative;
+
+    width: 100vw;
+    height: 100vh;
+
+    overflow: hidden;
+}
+
+
+#gameCanvas {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: block;
+}
+
+
+/* =========================================
+   TOP BAR
+========================================= */
+
+.top-bar {
+    position: absolute;
+
+    top: 18px;
+    left: 22px;
+    right: 22px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    pointer-events: none;
+}
+
+
+.title-box {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 5px;
+
+    padding: 13px 18px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(20, 38, 30, 0.78);
+
+    backdrop-filter: blur(8px);
+}
+
+
+.title-box strong {
+    font-size: 20px;
+
+    letter-spacing: 2px;
+}
+
+
+.title-box span {
+    font-size: 13px;
+
+    opacity: 0.7;
+}
+
+
+.score-box {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 13px 20px;
+
+    border-radius: 14px;
+
+    background:
+        rgba(20, 38, 30, 0.82);
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+}
+
+
+.score-box strong {
+    font-size: 28px;
+
+    color: #f4c95d;
+}
+
+
+/* =========================================
+   INSTRUCTION
+========================================= */
+
+#instruction {
+    position: absolute;
+
+    top: 108px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    padding: 13px 25px;
+
+    border-radius: 30px;
+
+    background:
+        rgba(20, 38, 30, 0.78);
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+    text-align: center;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   HAND SELECTOR
+========================================= */
+
+.hand-selector {
+    position: absolute;
+
+    left: 22px;
+    bottom: 22px;
+
+    display: flex;
+
+    gap: 7px;
+
+    padding: 7px;
+
+    border-radius: 15px;
+
+    background:
+        rgba(20, 38, 30, 0.86);
+}
+
+
+.hand-button {
+    padding: 13px 18px;
+
+    border-radius: 10px;
+
+    background: transparent;
+
+    color: white;
+
+    font-size: 14px;
+
+    font-weight: 800;
+}
+
+
+.hand-button.selected {
+    background: #f4c95d;
+
+    color: #17251f;
+}
+
+
+/* =========================================
+   CAMERA
+========================================= */
+
+.camera-container {
+    position: absolute;
+
+    right: 22px;
+    bottom: 22px;
+
+    width: 215px;
+    height: 165px;
+
+    overflow: hidden;
+
+    border-radius: 17px;
+
+    border: 3px solid rgba(255,255,255,0.85);
+
+    background: #111;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.35);
+}
+
+
+#inputVideo {
+    display: none;
+}
+
+
+#cameraCanvas {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    transform: scaleX(-1);
+}
+
+
+#handStatus {
+    position: absolute;
+
+    left: 8px;
+    right: 8px;
+
+    bottom: 8px;
+
+    padding: 7px;
+
+    border-radius: 8px;
+
+    background:
+        rgba(0,0,0,0.65);
+
+    font-size: 11px;
+
+    font-weight: 800;
+
+    text-align: center;
+}
+
+
+/* =========================================
+   CAMERA ERROR
+========================================= */
+
+.camera-error {
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 28px;
+
+    transform: translateX(-50%);
+
+    padding: 12px 20px;
+
+    border-radius: 12px;
+
+    background:
+        rgba(125, 42, 42, 0.92);
+
+    font-size: 14px;
+}
+
+
+/* =========================================
+   COMPLETE
+========================================= */
+
+.complete-overlay {
+    position: absolute;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(8, 24, 17, 0.65);
+
+    backdrop-filter: blur(6px);
+}
+
+
+.complete-card {
+    width: min(500px, 90vw);
+
+    padding: 42px;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background: #1d382b;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.45);
+}
+
+
+.success-circle {
+    width: 76px;
+    height: 76px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #f4c95d;
+
+    color: #17251f;
+
+    font-size: 42px;
+
+    font-weight: 900;
+}
+
+
+.complete-card h2 {
+    font-size: 38px;
+
+    margin-bottom: 12px;
+}
+
+
+.complete-card p {
+    font-size: 18px;
+
+    opacity: 0.8;
+
+    line-height: 1.5;
+}
+
+
+.final-score {
+    margin-top: 24px;
+
+    margin-bottom: 8px;
+
+    font-size: 13px;
+
+    letter-spacing: 2px;
+}
+
+
+.final-score strong {
+    display: block;
+
+    margin-top: 5px;
+
+    font-size: 44px;
+
+    color: #f4c95d;
+}
+
+
+.complete-card .primary-button {
+    display: block;
+
+    margin: 20px auto 0;
+}
+
+
+/* =========================================
+   UTILITY
+========================================= */
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 700px) {
+
+    .start-card {
+        padding: 35px 22px;
+    }
+
+
+    .start-card h1 {
+        font-size: 45px;
+    }
+
+
+    .start-card p {
+        font-size: 17px;
+    }
+
+
+    .camera-container {
+        width: 160px;
+        height: 125px;
+
+        right: 12px;
+        bottom: 12px;
+    }
+
+
+    .hand-selector {
+        left: 12px;
+        bottom: 12px;
+    }
+
+
+    .hand-button {
+        padding: 11px 12px;
+
+        font-size: 12px;
+    }
+
+
+    #instruction {
+        top: 95px;
+
+        max-width: 80vw;
+
+        font-size: 14px;
+    }
+
+
+    .title-box span {
+        display: none;
+    }
+
+}

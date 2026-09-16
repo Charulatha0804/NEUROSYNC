@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Level 6 - Home Organization</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- START SCREEN -->
+    <div id="startScreen" class="screen">
+        <div class="start-card">
+            <div class="home-icon">⌂</div>
+            <h1>LEVEL 6</h1>
+            <h2>Home Organization</h2>
+
+            <p class="description">
+                Organize the house by moving each misplaced object
+                to its correct location.
+            </p>
+
+            <div class="instructions">
+                <div>☝️ Point at an object</div>
+                <div>⭕ Hold for 3 seconds</div>
+                <div>↔️ Move it to the dotted location</div>
+                <div>⭕ Hold again for 3 seconds</div>
+            </div>
+
+            <button id="startButton">START LEVEL</button>
+        </div>
+    </div>
+
+
+    <!-- GAME SCREEN -->
+    <div id="gameScreen" class="screen hidden">
+
+        <header class="top-bar">
+            <div>
+                <div class="level-label">LEVEL 6</div>
+                <div class="level-title">Home Organization</div>
+            </div>
+
+            <div class="score-box">
+                <span>Objects</span>
+                <strong id="score">0 / 5</strong>
+            </div>
+        </header>
+
+
+        <main class="game-area">
+
+            <canvas id="gameCanvas" width="1100" height="650"></canvas>
+
+            <!-- CAMERA -->
+            <div class="camera-box">
+                <video id="inputVideo" autoplay playsinline muted></video>
+                <div id="handStatus" class="hand-status">
+                    Camera starting...
+                </div>
+            </div>
+
+            <!-- HAND SELECT -->
+            <div class="hand-controls">
+                <div class="control-title">CONTROL HAND</div>
+
+                <button id="leftHandBtn" class="hand-button selected">
+                    LEFT HAND
+                </button>
+
+                <button id="rightHandBtn" class="hand-button">
+                    RIGHT HAND
+                </button>
+            </div>
+
+            <!-- CURRENT TASK -->
+            <div class="task-panel">
+                <div class="task-label">CURRENT TASK</div>
+                <div id="taskText">Move your finger to the object</div>
+            </div>
+
+        </main>
+
+
+        <!-- CAMERA ERROR -->
+        <div id="cameraError" class="camera-error hidden">
+            Camera unavailable — please allow camera access.
+        </div>
+
+
+        <!-- COMPLETE -->
+        <div id="completeOverlay" class="overlay hidden">
+            <div class="complete-card">
+                <div class="complete-icon">✓</div>
+                <h1>LEVEL COMPLETE!</h1>
+                <p>You organized the whole house.</p>
+
+                <button id="nextLevelButton">
+                    NEXT LEVEL →
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <!-- MEDIAPIPE -->
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

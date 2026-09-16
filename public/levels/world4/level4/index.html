@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RehabPlay AI - Fruit Basket</title>
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- MediaPipe -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+</head>
+
+<body>
+
+  <div class="game-shell">
+
+    <header class="topbar">
+      <div class="title">
+        🧺 <span>Fruit Basket</span>
+      </div>
+
+      <div class="score-box">
+        <span>🍎 Score</span>
+        <strong id="score">0</strong>
+        <small>/ 100</small>
+      </div>
+    </header>
+
+    <main class="game-area">
+
+      <canvas id="gameCanvas" width="1100" height="650"></canvas>
+
+      <!-- Camera -->
+      <div class="camera-box">
+        <video id="cameraVideo" autoplay playsinline></video>
+        <div class="camera-label" id="cameraStatus">
+          CAMERA READY
+        </div>
+      </div>
+
+      <!-- Hand selection -->
+      <div class="controls">
+
+        <div class="control-title">
+          Choose your hand
+        </div>
+
+        <button id="leftHandBtn" class="hand-btn active">
+          ✋ Left Hand
+        </button>
+
+        <button id="rightHandBtn" class="hand-btn">
+          🤚 Right Hand
+        </button>
+
+      </div>
+
+      <div class="movement-guide">
+        ← Move your hand left &nbsp;&nbsp;&nbsp; Move your hand right →
+      </div>
+
+      <!-- Start -->
+      <div id="startScreen" class="overlay">
+        <div class="overlay-card">
+          <div class="big-icon">🧺</div>
+
+          <h1>Fruit Basket</h1>
+
+          <p>
+            Move your hand left and right<br>
+            to move the basket.
+          </p>
+
+          <div class="instructions">
+            <div>🍎 Fresh fruit → <b>+10</b></div>
+            <div>🥀 Rotten fruit → Avoid</div>
+            <div>🗑️ Junk → Avoid</div>
+          </div>
+
+          <button id="startBtn" class="start-btn">
+            START GAME
+          </button>
+        </div>
+      </div>
+
+      <!-- Complete -->
+      <div id="completeScreen" class="overlay hidden">
+        <div class="overlay-card">
+
+          <div class="big-icon">🏆</div>
+
+          <h1>LEVEL COMPLETE!</h1>
+
+          <p>
+            Amazing work!
+          </p>
+
+          <div class="final-score">
+            Score: <strong id="finalScore">100</strong>
+          </div>
+
+          <button id="nextBtn" class="start-btn">
+            NEXT LEVEL →
+          </button>
+
+        </div>
+      </div>
+
+    </main>
+
+  </div>
+
+  <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RehabPlay AI - Golden Coin Road</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+</head>
+
+<body>
+
+<div class="game-container">
+
+    <header class="top-bar">
+
+        <div>
+            <div class="game-title">🚗 RehabPlay AI</div>
+            <div class="game-subtitle">
+                Move your hand left and right to collect coins
+            </div>
+        </div>
+
+        <div class="score-box">
+            <div class="score-label">COINS</div>
+            <div id="score">0</div>
+        </div>
+
+    </header>
+
+
+    <main class="game-area">
+
+        <canvas
+            id="gameCanvas"
+            width="1000"
+            height="600">
+        </canvas>
+
+
+        <!-- CAMERA -->
+        <div class="camera-box">
+
+            <video
+                id="inputVideo"
+                autoplay
+                muted
+                playsinline>
+            </video>
+
+            <canvas id="cameraCanvas"></canvas>
+
+            <div class="camera-label">
+                CAMERA
+            </div>
+
+        </div>
+
+
+        <!-- HAND SELECTION -->
+        <div class="hand-selection">
+
+            <div class="hand-title">
+                Choose your hand
+            </div>
+
+            <div class="hand-buttons">
+
+                <button
+                    id="leftHandBtn"
+                    class="hand-button">
+                    👈 LEFT
+                </button>
+
+                <button
+                    id="rightHandBtn"
+                    class="hand-button selected">
+                    RIGHT 👉
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- MOVEMENT MESSAGE -->
+        <div
+            id="instruction"
+            class="instruction">
+            Move your hand LEFT or RIGHT
+        </div>
+
+
+        <!-- FEEDBACK -->
+        <div
+            id="feedback"
+            class="feedback">
+        </div>
+
+
+        <!-- START -->
+        <div
+            id="startScreen"
+            class="start-screen">
+
+            <div class="start-card">
+
+                <div class="car-icon">
+                    🚗
+                </div>
+
+                <h1>Golden Coin Road</h1>
+
+                <p>
+                    Move your hand left and right
+                    to collect the golden coins.
+                </p>
+
+                <div class="how-to">
+
+                    <div>
+                        👈
+                        <span>Move hand LEFT</span>
+                    </div>
+
+                    <div>
+                        👉
+                        <span>Move hand RIGHT</span>
+                    </div>
+
+                    <div>
+                        🪙
+                        <span>Collect golden coins</span>
+                    </div>
+
+                </div>
+
+                <button
+                    id="startButton"
+                    class="start-button">
+                    START GAME
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

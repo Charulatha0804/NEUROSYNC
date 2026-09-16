@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RehabPlay AI - Painting</title>
+<link rel="stylesheet" href="level2.css">
+</head>
+<body>
+
+<div class="game">
+    <video id="video" autoplay playsinline></video>
+    <canvas id="canvas"></canvas>
+
+    <div class="top">
+        <div class="title">PAINTING THERAPY</div>
+        <div class="status" id="status">Camera starting...</div>
+    </div>
+
+    <div class="controls">
+        <button id="clearBtn">CLEAR</button>
+        <button id="undoBtn">UNDO</button>
+        <button id="startBtn">START</button>
+        <button id="finishBtn">FINISH</button>
+    </div>
+
+    <div class="cursor" id="cursor"></div>
+
+    <div class="finishScreen" id="finishScreen">
+        <h1>WELL DONE</h1>
+        <p>Your painting is complete.</p>
+        <button id="againBtn">PAINT AGAIN</button>
+        <button id="nextBtn">NEXT LEVEL</button>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+<script src="level2.js"></script>
+
+</body>
+</html>

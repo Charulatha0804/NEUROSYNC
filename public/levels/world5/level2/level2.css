@@ -1,0 +1,219 @@
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: #eee9df;
+    font-family: Arial, sans-serif;
+}
+
+#game, .game {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            #ffffff 0%,
+            #f5f1e9 55%,
+            #e6e0d5 100%
+        );
+}
+
+#video {
+    display: none;
+}
+
+#paintCanvas, #canvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    cursor: none;
+}
+
+#cursor, .cursor {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #222;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 8;
+    pointer-events: none;
+    display: none;
+}
+
+#cursor.painting {
+    width: 15px;
+    height: 15px;
+    background: rgba(40,40,40,0.12);
+}
+
+#hud {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.brand {
+    position: absolute;
+    top: 24px;
+    left: 28px;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    color: #222;
+}
+
+.brand span {
+    display: block;
+    margin-top: 5px;
+    font-size: 9px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    opacity: 0.55;
+}
+
+.title {
+    position: absolute;
+    top: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 21px;
+    letter-spacing: 5px;
+    color: #222;
+}
+
+#instruction {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 24px;
+    background: rgba(255,255,255,0.82);
+    border: 1px solid rgba(0,0,0,0.12);
+    border-radius: 30px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #333;
+}
+
+#status, .status {
+    position: absolute;
+    bottom: 30px;
+    left: 28px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #333;
+    opacity: 0.7;
+}
+
+#movement {
+    position: absolute;
+    right: 28px;
+    bottom: 30px;
+    text-align: right;
+    font-size: 9px;
+    letter-spacing: 2px;
+    color: #333;
+    opacity: 0.7;
+}
+
+#movement strong {
+    display: block;
+    margin-top: 4px;
+    font-size: 19px;
+}
+
+.controls {
+    position: absolute;
+    right: 28px;
+    top: 92px;
+    display: flex;
+    gap: 8px;
+    pointer-events: auto;
+}
+
+button {
+    border: 1px solid rgba(0,0,0,0.15);
+    background: rgba(255,255,255,0.92);
+    color: #222;
+    padding: 11px 17px;
+    font-size: 9px;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+#startBtn {
+    background: #222;
+    color: white;
+    padding: 13px 25px;
+}
+
+button:hover {
+    background: #ddd;
+}
+
+#startBtn:hover {
+    background: #444;
+}
+
+#complete, .finishScreen {
+    display: none;
+    position: absolute;
+    inset: 0;
+    z-index: 100;
+    background: rgba(245,241,233,0.96);
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.completeTitle {
+    font-size: 38px;
+    letter-spacing: 6px;
+    color: #222;
+}
+
+.completeText {
+    margin-top: 14px;
+    font-size: 10px;
+    letter-spacing: 3px;
+    color: #555;
+}
+
+#complete button {
+    margin-top: 28px;
+}
+
+#complete #nextBtn, .finishScreen #nextBtn {
+    margin-top: 8px;
+}
+
+/* Integration compatibility for the supplied World 5 HTML structure. */
+.top { position: absolute; inset: 0; z-index: 10; pointer-events: none; }
+.top .title { pointer-events: none; }
+.top .status { pointer-events: none; }
+.finishScreen { text-align: center; }
+
+/* Make the hand brush unambiguous against the light canvas. */
+#cursor, .cursor {
+    background: rgba(255,255,255,0.55);
+    box-shadow: 0 0 0 2px rgba(255,255,255,0.9), 0 2px 8px rgba(0,0,0,0.28);
+}
+
+#cursor.painting, .cursor.painting {
+    width: 18px;
+    height: 18px;
+    background: rgba(40,40,40,0.18);
+}

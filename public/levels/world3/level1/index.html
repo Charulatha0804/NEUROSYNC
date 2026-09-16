@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RehabPlay AI - Catch the Apple</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game">
+
+        <video id="video" autoplay playsinline></video>
+
+        <canvas id="canvas"></canvas>
+
+        <div class="topbar">
+            <div class="title">REHABPLAY AI</div>
+            <div class="level">LEVEL 1</div>
+            <div class="score">🍎 SCORE: <span id="score">0</span></div>
+        </div>
+
+        <div class="instruction" id="instruction">
+            MOVE YOUR HAND TO THE APPLE
+        </div>
+
+        <div class="status" id="status">
+            CAMERA STARTING...
+        </div>
+
+        <button id="startBtn">START GAME</button>
+
+        <div class="bottom">
+            <div>
+                MOVEMENT
+                <div class="bar">
+                    <div id="movementBar"></div>
+                </div>
+            </div>
+
+            <button id="pauseBtn">⏸ PAUSE</button>
+            <button id="exitBtn">EXIT</button>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils/camera_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils/control_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils/drawing_utils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
